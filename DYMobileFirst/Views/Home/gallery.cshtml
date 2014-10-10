@@ -1,0 +1,111 @@
+﻿
+@{
+    ViewBag.Title = "gallery";
+}
+
+<section id="content">
+    <section class="main">
+        <div class="page-title">
+            Gallery
+        </div>
+        <div class=" m-t">
+            <div id="gallery" class="gallery hide">
+                <div class="item">
+                    <a href="~/images/render-1.jpg"
+                       rel="prettyPhoto[gallery]" class="item-media">
+                        <img src="~/images/render-1.jpg">
+                    </a>
+                    <div class="desc">
+                        <h4>
+                            Lorem ipsum dolor sit amet
+                        </h4>
+                        <p class="text-muted">
+                            Adipiscing elit. Morbi id neque quam. Aliquam sollicitudin venenatis ipsum
+                            ac feugiat. Vestibulum ullamcorper
+                        </p>
+                    </div>
+                </div>
+                <div class="item">
+                    <a href="~/images/render-2.jpg"
+                       rel="prettyPhoto[gallery]" class="item-media">
+                        <img src="~/images/render-2.jpg">
+                    </a>
+                    <div class="desc">
+                        <h4>
+                            Vestibulum ullamcorper
+                        </h4>
+                        <p class="text-muted">
+                            Lorem ipsum dolor sit amet sollicitudin venenatis ipsum ac feugiat. Vestibulum
+                            ullamcorper
+                        </p>
+                    </div>
+                </div>
+                <div class="item">
+                    <a href="~/images/render-3.jpg"
+                       rel="prettyPhoto[gallery]" class="item-media">
+                        <img src="~/images/render-3.jpg">
+                    </a>
+                    <div class="desc">
+                        <h4>
+                            Morbi id neque quam
+                        </h4>
+                        <p class="text-muted">
+                            Morbi id neque quam. Aliquam sollicitudin venenatis ipsum ac feugiat.
+                            Vestibulum ullamcorper
+                        </p>
+                    </div>
+                </div>
+                <div class="item">
+                    <a href="~/images/render-4.jpg"
+                       rel="prettyPhoto[gallery]" class="item-media">
+                        <img src="~/images/render-4.jpg">
+                    </a>
+                    <div class="desc">
+                        <h4>
+                            Lorem ipsum dolor sit amet
+                        </h4>
+                        <p class="text-muted">
+                            Adipiscing elit. Morbi id neque quam. Aliquam sollicitudin venenatis ipsum
+                            ac feugiat. Vestibulum ullamcorper
+                        </p>
+                    </div>
+                </div>
+                <div class="item">
+                    <a href="~/images/render-2.jpg"
+                       rel="prettyPhoto[gallery]" class="item-media">
+                        <img src="~/images/render-2.jpg">
+                    </a>
+                    <div class="desc">
+                        <h4>
+                            Vestibulum ullamcorper
+                        </h4>
+                        <p class="text-muted">
+                            Lorem ipsum dolor sit amet sollicitudin venenatis ipsum ac feugiat. Vestibulum
+                            ullamcorper
+                        </p>
+                    </div>
+                </div>
+                <div class="item">
+                    <a href="~/images/render-3.jpg"
+                       rel="prettyPhoto[gallery]" class="item-media">
+                        <img src="~/images/render-3.jpg">
+                    </a>
+                    <div class="desc">
+                        <h4>
+                            Morbi id neque quam
+                        </h4>
+                        <p class="text-muted">
+                            Morbi id neque quam. Aliquam sollicitudin venenatis ipsum ac feugiat.
+                            Vestibulum ullamcorper
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+@section Scripts {
+    @Scripts.Render("~/bundles/prettyPhoto")
+    @Scripts.Render("~/bundles/licious")
+    @Scripts.Render("~/bundles/gallery")
+}

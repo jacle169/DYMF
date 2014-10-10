@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="Scripts/jquery-2.1.1.js"></script>
+</head>
+<body>
+    <div>
+        <select id="method">
+            <option value="get">GET</option>
+            <option value="post">POST</option>
+            <option value="put">PUT</option>
+        </select>
+        <input type="button" value="Try it" onclick="sendRequest()" />
+        <span id='value1'>(Result)</span>
+    </div>
+
+    <script>
+        // TODO: Replace with the URL of your WebService app
+        var serviceUrl = 'http://localhost:49735/api/BookApi/5';
+
+        function sendRequest() {
+            var method = $('#method').val();
+
+            $.ajax({
+                type: method,
+                url: serviceUrl,
+                //身份验证
+                beforeSend: function (request) {
+                    request.setRequestHeader("pwd", "123");
+                }
+            }).done(function (data) {
+                $('#value1').text(data.Title);
+            }).error(function (jqXHR, textStatus, errorThrown) {
+                $('#value1').text(jqXHR.responseText || textStatus);
+            })
+        }
+    </script>
+</body>
+</html>

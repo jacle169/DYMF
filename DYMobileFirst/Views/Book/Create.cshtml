@@ -1,0 +1,120 @@
+﻿@model DYMobileFirst.Models.Book
+
+@{
+    ViewBag.Title = "新建";
+}
+<section id="content">
+    <section class="main padder">
+        <div class="clearfix">
+            <h4>
+                <i class="fa fa-edit">
+                </i>
+                新建
+            </h4>
+        </div>
+
+        @using (Html.BeginForm("Create", "Book", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <h4>Book</h4>
+                <hr />
+                @Html.ValidationSummary(true)
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Title, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Title)
+                        @Html.ValidationMessageFor(model => model.Title)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ReleaseDate, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.ReleaseDate)
+                        @Html.ValidationMessageFor(model => model.ReleaseDate)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Genre, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Genre)
+                        @Html.ValidationMessageFor(model => model.Genre)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Price, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Price)
+                        @Html.ValidationMessageFor(model => model.Price)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.staute, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.staute)
+                        @Html.ValidationMessageFor(model => model.staute)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.pub, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.pub)
+                        @Html.ValidationMessageFor(model => model.pub)
+                    </div> 
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.AuthorId, "作者", new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("AuthorId", ViewData["authors"] as SelectList, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.AuthorId)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2">商品图</label>
+                    <div class="col-md-10">
+                        <input type="file" name="files" id="file1" onchange="checkImgType(this)" />
+                        <input type="file" name="files" id="file2" onchange="checkImgType(this)" />
+                        <input type="file" name="files" id="file3" onchange="checkImgType(this)" />
+                        <input type="file" name="files" id="file4" onchange="checkImgType(this)" />
+                        <input type="file" name="files" id="file5" onchange="checkImgType(this)" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="保存" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        }
+
+        <div>
+            @Html.ActionLink("返回", "Index", new { pi = 1, ps = 15 }, new { @class = "btn btn-info btn-xs" })
+        </div>
+    </section>
+</section>
+@section Scripts {
+<script type="text/javascript">   
+    function checkImgType(ths) {
+        if (ths.value == "") {
+            return false;
+        } else {
+            if (!/\.(gif|jpg|jpeg|png|GIF|JPG|PNG)$/.test(ths.value)) {
+                alert("图片类型必须是.gif,jpeg,jpg,png中的一种");
+                ths.value = "";
+                return false;
+            }
+        }
+        return true;
+    }
+</script>
+}

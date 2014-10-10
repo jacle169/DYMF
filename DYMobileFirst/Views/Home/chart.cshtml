@@ -1,0 +1,432 @@
+﻿
+@{
+    ViewBag.Title = "chart";
+}
+
+<section id="content">
+    <section class="main padder">
+        <div class="clearfix">
+            <h4>
+                Chart
+            </h4>
+        </div>
+        <section class="panel">
+            <header class="panel-heading font-bold">
+                Site statistics
+            </header>
+            <div class="panel-body">
+                <div id="flot-color" style="height:250px">
+                </div>
+            </div>
+            <footer class="panel-footer">
+                <div class="row text-center">
+                    <div class="col-xs-3 b-r">
+                        <p class="h3 font-bold m-t">
+                            5,860
+                        </p>
+                        <p class="text-muted">
+                            Orders
+                        </p>
+                    </div>
+                    <div class="col-xs-3 b-r">
+                        <p class="h3 font-bold m-t">
+                            10,450
+                        </p>
+                        <p class="text-muted">
+                            Selling Items
+                        </p>
+                    </div>
+                    <div class="col-xs-3 b-r">
+                        <p class="h3 font-bold m-t">
+                            21,230
+                        </p>
+                        <p class="text-muted">
+                            Items
+                        </p>
+                    </div>
+                    <div class="col-xs-3">
+                        <p class="h3 font-bold m-t">
+                            7,230
+                        </p>
+                        <p class="text-muted">
+                            Customers
+                        </p>
+                    </div>
+                </div>
+            </footer>
+        </section>
+        <div class="row">
+            <div class="col-md-6">
+                <section class="panel">
+                    <header class="panel-heading font-bold">
+                        Multiple
+                    </header>
+                    <div class="panel-body">
+                        <div id="flot-chart" style="height:240px">
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="col-md-6">
+                <section class="panel">
+                    <header class="panel-heading font-bold">
+                        Real-time update
+                    </header>
+                    <div class="panel-body">
+                        <div id="flot-live" style="height:240px">
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <section class="panel">
+                    <header class="panel-heading font-bold">
+                        Vertical bar
+                    </header>
+                    <div class="panel-body">
+                        <div id="flot-bar" style="height:240px">
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="col-md-6">
+                <section class="panel">
+                    <header class="panel-heading font-bold">
+                        Horizontal bar
+                    </header>
+                    <div class="panel-body">
+                        <div id="flot-bar-h" style="height:240px">
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <section class="panel">
+                    <header class="panel-heading font-bold">
+                        Pie Chart
+                    </header>
+                    <div class="panel-body">
+                        <div id="flot-pie" style="height:240px">
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="col-md-6">
+                <section class="panel">
+                    <header class="panel-heading font-bold">
+                        Donut pie
+                    </header>
+                    <div class="panel-body">
+                        <div id="flot-pie-donut" style="height:240px">
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8">
+                <section class="panel">
+                    <header class="panel-heading">
+                        Stats
+                    </header>
+                    <div class="panel-body">
+                        <div class="btn-group" data-toggle="buttons">
+                            <label class="btn btn-sm btn-white active">
+                                <input type="radio" name="options" id="option1">
+                                Day
+                            </label>
+                            <label class="btn btn-sm btn-white">
+                                <input type="radio" name="options" id="option2">
+                                Week
+                            </label>
+                            <label class="btn btn-sm btn-white">
+                                <input type="radio" name="options" id="option2">
+                                Month
+                            </label>
+                            <label class="btn btn-sm btn-white">
+                                <input type="radio" name="options" id="option2">
+                                Year
+                            </label>
+                        </div>
+                        <div class="line line-large pull-in">
+                        </div>
+                        <div class="sparkline" data-type="line" data-resize="true" data-height="205"
+                             data-width="100%" data-line-color="#bfea5f" data-fill-color="#f3fce3" data-highlight-line-color="#e1e5e9"
+                             data-spot-radius="5" data-composite-data="[160,230,250,300,320,330,280,260,250,280,250,260,250,255,330,345,300,210,200,200,170,180,250,250,200,200,280,270,310,250,280,175]"
+                             data-composite-line-color="#a3e2fe" data-composite-fill-color="#e3f6ff"
+                             data-data="[120,250,200,325,400,380,250,320,345,250,250,250,200,325,300,365,250,210,200,180,150,160,250,250,250,200,300,310,330,250,320,205]">
+                        </div>
+                        <ul class="list-inline text-muted axis">
+                            <li>
+                                12:00
+                                <br>
+                                am
+                            </li>
+                            <li>
+                                2:00
+                            </li>
+                            <li>
+                                4:00
+                            </li>
+                            <li>
+                                6:00
+                            </li>
+                            <li>
+                                8:00
+                            </li>
+                            <li>
+                                10:00
+                            </li>
+                            <li>
+                                12:00
+                                <br>
+                                pm
+                            </li>
+                            <li>
+                                2:00
+                            </li>
+                            <li>
+                                4:00
+                            </li>
+                            <li>
+                                6:00
+                            </li>
+                            <li>
+                                8:00
+                            </li>
+                            <li>
+                                10:00
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+            <div class="col-lg-4">
+                <section class="panel">
+                    <header class="panel-heading">
+                        Conversion
+                    </header>
+                    <div class="panel-body text-center">
+                        <h4>
+                            62.5
+                            <small>
+                                hrs
+                            </small>
+                        </h4>
+                        <small class="text-muted block">
+                            Updated at 2 minutes ago
+                        </small>
+                        <div class="inline">
+                            <div class="easypiechart" data-percent="75" data-line-width="16" data-loop="false"
+                                 data-size="188">
+                                <span class="h2" style="margin-left:10px;margin-top:10px;display:inline-block">
+                                    75
+                                </span>
+                                %
+                                <div class="easypie-text">
+                                    <button class="btn btn-link m-t-n-small" data-toggle="class:pie">
+                                        <i class="fa fa-play text text-muted">
+                                        </i>
+                                        <i class="fa fa-pause text-active text-muted">
+                                        </i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="line pull-in">
+                        </div>
+                        <div>
+                            <small>
+                                % of avarage rate of the visits
+                            </small>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <section class="panel">
+                    <header class="panel-heading">
+                        Pie
+                    </header>
+                    <div class="panel-body text-center">
+                        <div class="sparkline inline" data-type="pie" data-height="175" data-slice-colors="['#233445','#3fcf7f','#ff5f5f','#f4c414','#13c4a5']">
+                            20,15,5,40,20
+                        </div>
+                        <div class="line pull-in">
+                        </div>
+                        <div class="text-mini">
+                            <i class="fa fa-circle text-info">
+                            </i>
+                            25%
+                            <i class="fa fa-circle text-success">
+                            </i>
+                            15%
+                            <i class="fa fa-circle text-danger">
+                            </i>
+                            25%
+                            <i class="fa fa-circle text-primary">
+                            </i>
+                            18%
+                            <i class="fa fa-circle text-warning">
+                            </i>
+                            40%
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="col-lg-4">
+                <section class="panel">
+                    <header class="panel-heading">
+                        Composite
+                    </header>
+                    <div class="panel-body text-center">
+                        <div class="inline">
+                            <div class="sparkline inline" data-type="bar" data-height="145" data-bar-width="20"
+                                 data-bar-spacing="10" data-bar-color="#a3e2fe" data-composite-data="[10,8,12,13,22,15,18]"
+                                 data-composite-line-color="#bfea5f" data-composite-fill-color="#f3fce3"
+                                 data-highlight-line-color="#e1e5e9" data-spot-radius="3">
+                                5,15,12,18,20,17,13
+                            </div>
+                            <ul class="list-inline text-muted axis">
+                                <li>
+                                    M
+                                    <br>
+                                    5%
+                                </li>
+                                <li>
+                                    T
+                                    <br>
+                                    15%
+                                </li>
+                                <li>
+                                    W
+                                    <br>
+                                    12%
+                                </li>
+                                <li>
+                                    T
+                                    <br>
+                                    18%
+                                </li>
+                                <li>
+                                    F
+                                    <br>
+                                    20%
+                                </li>
+                                <li>
+                                    S
+                                    <br>
+                                    17%
+                                </li>
+                                <li>
+                                    S
+                                    <br>
+                                    13%
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="line pull-in">
+                        </div>
+                        <div class="text-small">
+                            Check more data
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="col-lg-4">
+                <section class="panel">
+                    <header class="panel-heading">
+                        Breakdown
+                    </header>
+                    <div class="panel-body">
+                        <div class="media">
+                            <div class="pull-right media-small">
+                                Today
+                            </div>
+                            <div class="progress bg-light">
+                                <div class="progress-bar bg-primary" style="width: 65%">
+                                    $20,000
+                                </div>
+                            </div>
+                        </div>
+                        <div class="media m-t-none">
+                            <div class="pull-right media-small">
+                                Yesterday
+                            </div>
+                            <div class="progress bg-light">
+                                <div class="progress-bar bg-success" style="width: 80%">
+                                    $30,000
+                                </div>
+                            </div>
+                        </div>
+                        <div class="media m-t-none">
+                            <div class="pull-right media-small">
+                                Friday
+                            </div>
+                            <div class="progress bg-light">
+                                <div class="progress-bar bg-info" style="width: 60%">
+                                    $15,000
+                                </div>
+                            </div>
+                        </div>
+                        <div class="media m-t-none">
+                            <div class="pull-right media-small">
+                                Thursday
+                            </div>
+                            <div class="progress bg-light">
+                                <div class="progress-bar bg-warning" style="width: 55%">
+                                    $11,000
+                                </div>
+                            </div>
+                        </div>
+                        <div class="media m-t-none">
+                            <div class="pull-right media-small">
+                                Wednesday
+                            </div>
+                            <div class="progress bg-light">
+                                <div class="progress-bar bg-danger" style="width: 50%">
+                                    $9,000
+                                </div>
+                            </div>
+                        </div>
+                        <div class="media m-t-none">
+                            <div class="pull-right media-small">
+                                Tuesday
+                            </div>
+                            <div class="progress bg-light">
+                                <div class="progress-bar bg-default" style="width: 35%">
+                                    $7,500
+                                </div>
+                            </div>
+                        </div>
+                        <div class="media m-t-none">
+                            <div class="pull-right media-small">
+                                Monday
+                            </div>
+                            <div class="progress bg-light">
+                                <div class="progress-bar bg-default" style="width: 40%">
+                                    $8,000
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+</section>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/flotmin")
+    @Scripts.Render("~/bundles/flottooltip")
+    @Scripts.Render("~/bundles/flotresize")
+    @Scripts.Render("~/bundles/flotorderBars")
+    @Scripts.Render("~/bundles/flotpie")
+    @Scripts.Render("~/bundles/flotdemo")
+}

@@ -1,0 +1,220 @@
+﻿@model IEnumerable<DYMobileFirst.Models.Book>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<section id="content">
+    <section class="main padder">
+        <div class="clearfix">
+            <h4>
+                <i class="fa fa-edit">
+                </i>
+                Index
+            </h4>
+        </div>
+
+        <div class="form-inline">
+            <section class="panel">
+                <a href="@Url.Action("Create")" class="btn btn-info">
+                    <i class="fa fa-fw fa-plus">
+                    </i>
+                    添加
+                </a>
+                <a class="btn btn-info" data-toggle="modal" href="#dm-local-filter">
+                    <i class="fa fa-fw fa-search-plus">
+                    </i>
+                    服务端查询
+                </a>
+                <a download="export.xls" class="btn btn-info" href="#"
+                   onclick="return ExcellentExport.excel(this, 'datatable', 'context');">
+                    <i class="fa fa-fw fa-arrow-right">
+                    </i>
+                    导出Excel(非IE内核)
+                </a>
+                <input type="text" id="filter" placeholder="客户端关键字过滤" class="form-control">
+            </section>
+        </div>
+
+        <table id="datatable" class="footable" data-filter="#filter" data-filter-minimum="1"
+               data-filter-timeout="500" data-filter-text-only="true">
+            <thead>
+                <tr>
+                    <th data-sort-ignore="true">
+                        #
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Title)
+                    </th>
+                    <th data-hide="phone">
+                        @Html.DisplayNameFor(model => model.Author.Name)
+                    </th>
+                    <th data-hide="phone,tablet">
+                        @Html.DisplayNameFor(model => model.ReleaseDate)
+                    </th>
+                    <th data-hide="phone,tablet">
+                        @Html.DisplayNameFor(model => model.Genre)
+                    </th>
+                    <th data-hide="phone">
+                        @Html.DisplayNameFor(model => model.Price)
+                    </th>
+                    <th data-hide="phone">
+                        @Html.DisplayNameFor(model => model.staute)
+                    </th>
+                    <th data-hide="phone,tablet">
+                        @Html.DisplayNameFor(model => model.pub)
+                    </th>
+                    <th data-hide="phone,tablet" data-sort-ignore="true"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Author.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ReleaseDate)
+                        </td>
+                        <td>
+                            @*@Html.DisplayFor(modelItem => item.Genre)*@
+                            @Html.Raw(item.Genre)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Price)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.staute)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.pub)
+                        </td>
+                        <td>
+                            @Html.ActionLink("修改", "Edit", new { id = item.Id }, new { @class = "btn btn-info btn-xs" }) |
+                            @Html.ActionLink("明细", "Details", new { id = item.Id }, new { @class = "btn btn-info btn-xs" }) |
+                            @Html.ActionLink("删除", "Delete", new { id = item.Id }, new { @class = "btn btn-info btn-xs" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td></td>
+                    <td>@Model.Count().ToString() 条记录</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        @Model.Sum(m => m.Price).ToString("c")
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <div class="text-left">
+                            <ul class="pagination pagination">
+                                <li>
+                                    <a href="@Url.Action("Index", "Book", new { pi = ViewBag.pi > 1 ? ViewBag.pi - 1 : 1, ps = ViewBag.ps })">
+                                        <i class="fa fa-chevron-left">
+                                        </i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Index", "Book", new { pi = ViewBag.pi < ViewBag.tp ? ViewBag.pi + 1 : ViewBag.tp, ps = ViewBag.ps })">
+                                        <i class="fa fa-chevron-right">
+                                        </i>
+                                    </a>
+                                </li>
+                                <li><span>第 @ViewBag.pi 页，共 @ViewBag.tp 页</span></li>
+                            </ul>
+                        </div>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tfoot>
+        </table>
+    </section>
+
+</section>
+
+<!-- .modal -->
+<div id="dm-local-filter" class="modal fade">
+    @using (Html.BeginForm("Index", "Book", FormMethod.Get, new { @class = "m-b-none" }))
+    {
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <i class="fa fa-times">
+                        </i>
+                    </button>
+                    <h4 class="modal-title">
+                        服务器端查询
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        作者
+                        <div class="col-md-10">
+                            @Html.DropDownList("authors", ViewData["authors"] as SelectList, "所有", new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="line line-dashed m-t-large"></div>
+                    <div class="form-group">
+                        全文搜索
+                        <div class="col-md-10">
+                            <input type="text" name="searchString" placeholder="书名/出版社" class="form-control">
+                        </div>
+                    </div>
+                    <div class="line line-dashed m-t-large"></div>
+                    <div class="form-group">
+                        发布日期
+                        <div class="col-md-10">
+                            <input type="text" name="start" data-format="DD-MM-YYYY HH:mm" data-template="DD - MM - YYYYHH : mm" class="combodate form-control">
+                            <br />
+                            至
+                            <br />
+                            <input type="text" name="end" data-format="DD-MM-YYYY HH:mm" data-template="DD - MM - YYYYHH : mm" class="combodate form-control">
+                        </div>
+                    </div>
+                    <br />
+                </div>
+                <br />
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="submit">
+                        执行查询
+                    </button>
+                    <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">
+                        关闭
+                    </button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+    }
+</div>
+<!-- / .modal -->
+@Scripts.Render("~/bundles/excel")
+@section Scripts {
+    <script type="text/javascript">
+        $(function () {
+            $('.footable').footable();
+        });
+    </script>
+}

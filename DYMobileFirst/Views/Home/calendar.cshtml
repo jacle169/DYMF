@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "calendar";
+}
+
+<section id="content" class="content-sidebar bg-white">
+    <!-- .sidebar -->
+    <aside class="sidebar bg-lighter padder clearfix">
+        <h5>
+            Dragable events
+        </h5>
+        <div class="line">
+        </div>
+        <div id="myEvents" class="pillbox clearfix m-b no-border no-padder">
+            <ul>
+                <li class="label bg-inverse">
+                    Item One
+                </li>
+                <li class="label bg-success">
+                    Item Two
+                </li>
+                <li class="label bg-warning">
+                    Item Three
+                </li>
+                <li class="label bg-danger">
+                    Item Four
+                </li>
+                <li class="label bg-info">
+                    Item Five
+                </li>
+                <li class="label bg-primary">
+                    Item Six
+                </li>
+                <li class="label bg-default">
+                    Item Seven
+                </li>
+                <input type="text" placeholder="add an event">
+            </ul>
+        </div>
+        <div class="line">
+        </div>
+        <div class="checkbox">
+            <label class="checkbox-custom">
+                <input type='checkbox' id='drop-remove' />
+                <i class="fa fa-check-square-o">
+                </i>
+                remove after drop
+            </label>
+        </div>
+    </aside>
+    <!-- /.sidebar -->
+    <!-- .main -->
+    <section class="main">
+        <div class="calendar" id="calendar">
+        </div>
+    </section>
+    <!-- /.main -->
+</section>
+@section Scripts {
+    @Scripts.Render("~/bundles/fuelux")
+    @Scripts.Render("~/bundles/ui")
+    @Scripts.Render("~/bundles/touch")
+    @Scripts.Render("~/bundles/fullcalendar")
+}

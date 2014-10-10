@@ -1,0 +1,8 @@
+﻿@model bool?
+<div class="checkbox">
+    <label class="checkbox-custom">
+        @Html.CheckBox("", Model.GetValueOrDefault())
+        <i class="fa fa-check-square-o"></i>
+        选择属性
+    </label>
+</div>

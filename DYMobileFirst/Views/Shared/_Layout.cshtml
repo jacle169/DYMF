@@ -1,0 +1,487 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>@ViewBag.Title</title>
+    @Scripts.Render("~/bundles/modernizr")
+    @*@other.RenderStylesIe("lt IE 9", "~/Content/foo")
+        @other.RenderScriptsIe("lte IE 7", "~/Scripts/bar")*@
+    @other.RenderScriptsIe("IE", "~/bundles/ie")
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/select2")
+    @Styles.Render("~/Content/footable")
+    @Styles.Render("~/Content/move")
+</head>
+<body>
+    <div class="loader" data-initialize="loader" id="myLoader"></div>
+    <!-- header -->
+    <header id="header" class="navbar">
+        <ul class="nav navbar-nav navbar-avatar pull-right">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <span class="hidden-xs-only">
+                        东海
+                    </span>
+                    <span class="thumb-small avatar inline">
+                        <img src="~/images/avatar.jpg"
+                             alt="Mika Sokeil" class="img-circle">
+                    </span>
+                    <b class="caret hidden-xs-only">
+                    </b>
+                </a>
+                <ul class="dropdown-menu pull-right">
+                    <li>
+                        <a href="#">
+                            设置
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            个人资料
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="badge bg-danger pull-right">
+                                3
+                            </span>
+                            通知
+                        </a>
+                    </li>
+                    <li class="divider">
+                    </li>
+                    <li>
+                        <a href="@Url.Action("docs", "Home")">
+                            帮助
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Logout", "Home")">
+                            登出
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <a class="navbar-brand" href="#">
+            cross
+        </a>
+        <button type="button" class="btn btn-link pull-left nav-toggle visible-xs"
+                data-toggle="class:slide-nav slide-nav-left" data-target="body">
+            <i class="fa fa-bars fa-lg text-default">
+            </i>
+        </button>
+        <ul class="nav navbar-nav hidden-xs">
+            <li>
+                <div class="m-t m-b-small" id="panel-notifications">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-comment-o fa-fw fa-lg text-default">
+                        </i>
+                        <b class="badge badge-notes bg-danger count-n">
+                            2
+                        </b>
+                    </a>
+                    <section class="dropdown-menu m-l-small m-t-mini">
+                        <section class="panel panel-large arrow arrow-top">
+                            <header class="panel-heading bg-white">
+                                <span class="h5">
+                                    <strong>
+                                        有
+                                        <span class="count-n">
+                                            2
+                                        </span>
+                                        消息
+                                    </strong>
+                                </span>
+                            </header>
+                            <div class="list-group">
+                                <a href="#" class="media list-group-item">
+                                    <span class="pull-left thumb-small">
+                                        <img src="~/images/avatar.jpg"
+                                             alt="John said" class="img-circle">
+                                    </span>
+                                    <span class="media-body block m-b-none">
+                                        Moved to Bootstrap 3.0
+                                        <br>
+                                        <small class="text-muted">
+                                            23 June 13
+                                        </small>
+                                    </span>
+                                </a>
+                                <a href="#" class="media list-group-item">
+                                    <span class="media-body block m-b-none">
+                                        first v.1 (Bootstrap 2.3 based) released
+                                        <br>
+                                        <small class="text-muted">
+                                            19 June 13
+                                        </small>
+                                    </span>
+                                </a>
+                            </div>
+                            <footer class="panel-footer text-small">
+                                <a href="#" class="pull-right">
+                                    <i class="fa fa-cog">
+                                    </i>
+                                </a>
+                                <a href="#">
+                                    查看所有消息
+                                </a>
+                            </footer>
+                        </section>
+                    </section>
+                </div>
+            </li>
+            <li>
+                <div class="m-t-small">
+                    <a class="btn btn-sm btn-info" data-toggle="modal" href="#modal">
+                        <i class="fa fa-fw fa-plus">
+                        </i>
+                        提交
+                    </a>
+                </div>
+            </li>
+            <li class="dropdown shift" data-toggle="shift:appendTo" data-target=".nav-primary .nav">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="fa fa-cog fa-lg visible-xs visible-xs-inline">
+                    </i>
+                    设置
+                    <b class="caret hidden-sm-only">
+                    </b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="#" data-toggle="class:navbar-fixed" data-target='body'>
+                            导航
+                            <span class="text-active">
+                                自动
+                            </span>
+                            <span class="text">
+                                绑定
+                            </span>
+                        </a>
+                    </li>
+                    <li class="hidden-xs">
+                        <a href="#" data-toggle="class:nav-vertical" data-target="#nav">
+                            导航栏
+                            <span class="text-active">
+                                纵向
+                            </span>
+                            <span class="text">
+                                横向
+                            </span>
+                        </a>
+                    </li>
+                    <li class="divider hidden-xs">
+                    </li>
+                    <li class="dropdown-header">
+                        颜色
+                    </li>
+                    <li>
+                        <a href="#" data-toggle="class:bg bg-black" data-target='.navbar'>
+                            导航
+                            <span class="text-active">
+                                白色
+                            </span>
+                            <span class="text">
+                                深蓝
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-toggle="class:bg-light" data-target='#nav'>
+                            导航
+                            <span class="text-active">
+                                深蓝
+                            </span>
+                            <span class="text">
+                                白色
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <form class="navbar-form pull-left shift" action="" data-toggle="shift:appendTo"
+              data-target=".nav-primary">
+            <i class="fa fa-search text-muted">
+            </i>
+            <input type="text" class="input-sm form-control" placeholder="查找">
+        </form>
+    </header>
+    <!-- / header -->
+    <!-- nav -->
+    <nav id="nav" class="nav-primary hidden-xs nav-vertical">
+        <ul class="nav" data-spy="affix" data-offset-top="50">
+            <li id="Home" class="active">
+                <a href="@Url.Action("Index", "Home")">
+                    <i class="fa fa-dashboard fa-lg">
+                    </i>
+                    <span>
+                        主页
+                    </span>
+                </a>
+            </li>
+            <li class="dropdown-submenu">
+                <a href="#">
+                    <i class="fa fa-th fa-lg">
+                    </i>
+                    <span>
+                        元素
+                    </span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="@Url.Action("buttons", "Home")">
+                            按扭
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("icons", "Home")">
+                            <b class="badge pull-right">
+                                302
+                            </b>
+                            图标
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("grid", "Home")">
+                            格
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("widgets", "Home")">
+                            <b class="badge bg-primary pull-right">
+                                8
+                            </b>
+                            挂件
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("components", "Home")">
+                            <b class="badge pull-right">
+                                18
+                            </b>
+                            组件
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("portlet", "Home")">
+                            拖放挂件
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="dropdown-submenu">
+                <a href="#">
+                    <i class="fa fa-list fa-lg">
+                    </i>
+                    <span>
+                        列表
+                    </span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="@Url.Action("list", "Home")">
+                            组列表
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("table", "Home")">
+                            表格
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="@Url.Action("form", "Home")">
+                    <i class="fa fa-edit fa-lg">
+                    </i>
+                    <span>
+                        Form表单
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("chart", "Home")">
+                    <i class="fa fa-signal fa-lg">
+                    </i>
+                    <span>
+                        统计图
+                    </span>
+                </a>
+            </li>
+            <li class="dropdown-submenu">
+                <a href="#">
+                    <i class="fa fa-link fa-lg">
+                    </i>
+                    <span>
+                        其他
+                    </span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="@Url.Action("mail", "Home")">
+                            电子邮件
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("calendar", "Home")">
+                            全屏日程
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("timeline", "Home")">
+                            时间轴
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("profile", "Home")">
+                            个人中心
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("gallery", "Home")">
+                            图片展示
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("invoice", "Home")">
+                            发票
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("signin", "Home")">
+                            登陆页
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("signup", "Home")">
+                            注册页
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("notfind", "Home")">
+                            404 页
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li id="Book" class="dropdown-submenu">
+                <a href="#">
+                    <i class="fa fa-wheelchair fa-lg">
+                    </i>
+                    <span>
+                        MVC测试
+                    </span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="@Url.Action("Index", "Book", new { pi = 1, ps = 15 })">
+                            Book
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <!-- / nav -->
+    @RenderBody()
+    <!-- .modal -->
+    <div id="modal" class="modal fade">
+        <form class="m-b-none">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">
+                            <i class="fa fa-times">
+                            </i>
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">
+                            Post your first idea
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="block">
+                            <label class="control-label">
+                                Title
+                            </label>
+                            <input type="text" class="form-control" placeholder="Post title">
+                        </div>
+                        <div class="block">
+                            <label class="control-label">
+                                Content
+                            </label>
+                            <textarea class="form-control" placeholder="Content" rows="5"></textarea>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox">
+                                Share with all memebers of first
+                            </label>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">
+                            Save
+                        </button>
+                        <button type="button" class="btn btn-sm btn-primary" data-loading-text="Publishing...">
+                            Publish
+                        </button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+        </form>
+    </div>
+    <!-- / .modal -->
+    <!-- footer -->
+    <footer id="footer">
+        <div class="text-center padder clearfix">
+            <small>
+                &copy; DY 2014, 移动设备优先框架，QQ229292620
+            </small>
+            <br>
+            <br>
+            <a href="http://weibo.com/funsl" target="_blank" class="btn btn-xs btn-circle btn-twitter">
+                <i class="fa fa-weibo">
+                </i>
+            </a>
+            <a href="skype:jacle169" class="btn btn-xs btn-circle btn-facebook">
+                <i class="fa fa-skype">
+                </i>
+            </a>
+            <a href="Mail:jacle169@21cn.com" class="btn btn-xs btn-circle btn-gplus">
+                <i class="fa fa-google-plus">
+                </i>
+            </a>
+            <div class="footer-tools">
+                <span class="go-top">
+                    <i class="fa fa-chevron-up"></i> 回顶
+                </span>
+            </div>
+        </div>
+    </footer>
+    <a href="#" class="hide slide-nav-block" data-toggle="class:slide-nav slide-nav-left" data-target="body"></a>
+    <!-- / footer -->
+    <!-- Bootstrap -->
+    <!-- app -->
+    <!-- Sparkline Chart -->
+    <!-- Easy Pie Chart -->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/app")
+    @Scripts.Render("~/bundles/footable")
+    @Scripts.Render("~/bundles/move")
+    @Scripts.Render("~/bundles/ajaxvalidate")
+    @Scripts.Render("~/bundles/fuelux")
+    @Scripts.Render("~/bundles/datepicker")
+    @Scripts.Render("~/bundles/slider")
+    @Scripts.Render("~/bundles/file-input")
+    @Scripts.Render("~/bundles/moment")
+    @Scripts.Render("~/bundles/combodate")
+    @Scripts.Render("~/bundles/parsley")
+    @Scripts.Render("~/bundles/select2")
+    <script type="text/javascript">var con = "@ViewContext.RouteData.Values["controller"]"; if (con !== null) { $(".nav > li").each(function () { $(this).removeClass("active") }); $("li#" + con + "").addClass("active") }</script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

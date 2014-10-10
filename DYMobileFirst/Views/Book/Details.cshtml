@@ -1,0 +1,85 @@
+﻿@model DYMobileFirst.Models.Book
+
+@{
+    ViewBag.Title = "明细";
+}
+<section id="content">
+    <section class="main padder">
+        <div class="clearfix">
+            <h4>
+                <i class="fa fa-edit">
+                </i>
+                明细
+            </h4>
+        </div>
+
+        <div>
+            <h4>Book</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Author.Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Author.Name)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Title)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Title)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.ReleaseDate)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ReleaseDate)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Genre)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Genre)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Price)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Price)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.staute)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.staute)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.pub)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.pub)
+                </dd>
+                <dd>
+                    @Html.DisplayFor(x => x.Author)
+                </dd>
+            </dl>
+        </div>
+        <p>
+            @Html.ActionLink("修改", "Edit", new { id = Model.Id }, new { @class = "btn btn-info btn-xs" }) |
+            @Html.ActionLink("返回", "Index", new { pi = 1, ps = 15 }, new { @class = "btn btn-info btn-xs" })
+        </p>
+    </section>
+</section>

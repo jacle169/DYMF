@@ -1,0 +1,5 @@
+﻿@Html.TextArea(string.Empty, /* Name suffix */
+    ViewData.TemplateInfo.FormattedModelValue /* Initial value */
+)
+<script src="@Url.Content("~/Scripts/tinymce/tinymce.min.js?v=4.1.5")"></script>
+@Scripts.Render("~/bundles/tinymceinit")

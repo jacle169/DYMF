@@ -1,0 +1,7 @@
+﻿@model DateTime?
+@Html.TextBox("", (Model.HasValue ? Model.Value.ToString("dd-MM-yyyy HH:mm") : string.Empty), new
+{
+    @class = "form-control combodate",
+    data_format = "DD-MM-YYYY HH:mm",
+    data_template = "DD 日 MM 月 YYYY 年<br/>HH 时 mm 分"
+})
