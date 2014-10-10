@@ -13,13 +13,18 @@ using DYMobileFirst.Models;
 
 namespace DYMobileFirst.Controllers
 {
-    //[EnableCors(origins: "*", headers: "*", methods: "*")] 身份验证
+    //[EnableCors(origins: "*", headers: "*", methods: "*")] 身份验证/跨域访问
     //defind in webapiconfig.cs
     public class BookApiController : ApiController
     {
         private BookDBContext db = new BookDBContext();
 
         // GET api/BookApi
+        /// <summary>
+        /// this is get function without parameter
+        /// </summary>
+        /// <returns>function return value</returns>
+         [Throttle(Name = "TestThrottle", Message = "你必须间隔 {n} 秒后才可以访问此连接.", Seconds = 2)]
         public IQueryable<Book> GetBooks()
         {
             return db.Books;

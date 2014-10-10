@@ -15,6 +15,9 @@ namespace DYMobileFirst.Areas.HelpPage
     {
         public static void Register(HttpConfiguration config)
         {
+            config.SetDocumentationProvider(new XmlDocumentationProvider(
+                HttpContext.Current.Server.MapPath("~/bin/DYMobileFirst.XML")));
+
             //// Uncomment the following to use the documentation from XML documentation file.
             //config.SetDocumentationProvider(new XmlDocumentationProvider(HttpContext.Current.Server.MapPath("~/App_Data/XmlDocument.xml")));
 
