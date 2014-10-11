@@ -20,8 +20,9 @@ namespace DYMobileFirst.Controllers
         private BookDBContext db = new BookDBContext();
 
         // GET api/BookApi
+        //打开Help地址 localhost/help
         /// <summary>
-        /// this is get function without parameter
+        /// 取得所有book资料
         /// </summary>
         /// <returns>function return value</returns>
          [Throttle(Name = "TestThrottle", Message = "你必须间隔 {n} 秒后才可以访问此连接.", Seconds = 2)]
