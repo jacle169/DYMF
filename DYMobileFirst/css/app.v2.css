@@ -11979,6 +11979,36 @@ input[type="text"], select, textarea {
         }
 }
 
-.input-validation-error {
+/* styles for validation helpers */
+.field-validation-error
+{
+    color: #FF0000;
+    font-weight: bold;
+}
+
+.field-validation-valid
+{
+    display: none;
+}
+
+input.input-validation-error
+{
     border: 1px solid #FF0000;
+}
+
+input[type="checkbox"].input-validation-error
+{
+    border: 0 none;
+}
+
+.validation-summary-errors
+{
+    color: #FF0000;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.validation-summary-valid
+{
+    display: none;
 }
