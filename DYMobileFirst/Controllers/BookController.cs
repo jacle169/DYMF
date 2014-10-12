@@ -62,8 +62,7 @@ namespace DYMobileFirst.Controllers
         [HttpGet]
         public JsonResult CheckTitleExists(string Title)
         {
-            var book = db.Books.FirstOrDefault(b => b.Title == Title);
-            return Json(book == null ? true : false, JsonRequestBehavior.AllowGet);
+            return Json(!db.Books.Any(b => b.Title == Title), JsonRequestBehavior.AllowGet);
         }  
 
         [HttpPost]
