@@ -1,5 +1,9 @@
-﻿using System;
+﻿using DYMobileFirst.Models;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity.Core.Mapping;
+using System.Data.Entity.Core.Metadata.Edm;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
@@ -20,6 +24,13 @@ namespace DYMobileFirst
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             BundleTable.EnableOptimizations = true;//是否启用优化
+
+            using (var dbcontext = new BookDBContext())
+            {
+                var objectContext = ((IObjectContextAdapter)dbcontext).ObjectContext;
+                var mappingCollection = (StorageMappingItemCollection)objectContext.MetadataWorkspace.GetItemCollection(DataSpace.CSSpace);
+                mappingCollection.GenerateViews(new List<EdmSchemaError>());
+            }  //对程序中定义的所有DbContext逐一进行这个操作
         }
 
         protected void Application_Error(Object sender, EventArgs e)

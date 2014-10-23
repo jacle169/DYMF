@@ -557,6 +557,7 @@
     <Content Include="css\fonts\footable.eot" />
     <Content Include="css\fonts\footable.ttf" />
     <Content Include="css\fonts\footable.woff" />
+    <Content Include="BMap.html" />
     <Content Include="Views\Shared\DisplayTemplates\Author.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Boolean.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Enum.cshtml" />
