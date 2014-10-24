@@ -26,6 +26,9 @@ namespace DYMobileFirst.Models
     {
         protected override void Seed(BookDBContext context)
         {
+            //Id标识从1000开始
+            context.Database.ExecuteSqlCommand("ALTER TABLE [Books] ALTER COLUMN [Id] IDENTITY (1001,1)");
+
             var d = new Author() { Name = "古龙" };
             var c = new Author() { Name = "金庸" };
             var e = new Author() { Name = "梁羽生" };
