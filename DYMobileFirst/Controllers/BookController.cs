@@ -38,8 +38,8 @@ namespace DYMobileFirst.Controllers
 
             DateTime dstart;
             DateTime dend;
-            if (DateTime.TryParseExact(start, "dd-MM-yyyy HH:mm", CultureInfo.InvariantCulture, DateTimeStyles.None, out dstart)
-                && DateTime.TryParseExact(end, "dd-MM-yyyy HH:mm", CultureInfo.InvariantCulture, DateTimeStyles.None, out dend))
+            if (DateTime.TryParseExact(start, "yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture, DateTimeStyles.None, out dstart)
+                && DateTime.TryParseExact(end, "yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture, DateTimeStyles.None, out dend))
             {
                 if (dstart < dend) 
                 { 
