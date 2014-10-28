@@ -5,6 +5,7 @@ using System.Data.Entity.Core.Mapping;
 using System.Data.Entity.Core.Metadata.Edm;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
@@ -42,6 +43,43 @@ namespace DYMobileFirst
             //    Response.Redirect("~/Home/notfind");
             //    Server.ClearError();
             //}
+        }
+
+        protected void Application_End(object sender, EventArgs e)
+        {
+            try
+            {
+                using (var wc = new WebClient())
+                {
+                    var url = Request.Url.AbsoluteUri.Replace(Request.Url.AbsolutePath, "");
+                    url = url + "/alive.aspx";
+                    wc.DownloadString(url);
+                }
+            }
+            catch (Exception)
+            {
+                
+            }
+        }
+
+        protected void Session_Start(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Session_End(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Application_BeginRequest(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Application_AuthenticateRequest(object sender, EventArgs e)
+        {
+
         }
 
     }

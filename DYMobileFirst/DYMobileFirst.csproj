@@ -139,6 +139,13 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Compile Include="alive.aspx.cs">
+      <DependentUpon>alive.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="alive.aspx.designer.cs">
+      <DependentUpon>alive.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -171,6 +178,7 @@
     <Compile Include="Throttle.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="alive.aspx" />
     <Content Include="App_Data\t.txt" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\fonts\footable.svg" />
