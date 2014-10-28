@@ -32,6 +32,9 @@ namespace DYMobileFirst
                 var mappingCollection = (StorageMappingItemCollection)objectContext.MetadataWorkspace.GetItemCollection(DataSpace.CSSpace);
                 mappingCollection.GenerateViews(new List<EdmSchemaError>());
             }  //对程序中定义的所有DbContext逐一进行这个操作
+
+            //自定义日期类型错误提示
+            ModelBinders.Binders.Add(typeof(DateTime), new MyDateTimeModelBinder());
         }
 
         protected void Application_Error(Object sender, EventArgs e)
@@ -82,5 +85,34 @@ namespace DYMobileFirst
 
         }
 
+    }
+
+    public class MyDateTimeModelBinder : DefaultModelBinder
+    {
+        public override object BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
+        {
+            var displayFormat = bindingContext.ModelMetadata.DisplayFormatString;
+            var value = bindingContext.ValueProvider.GetValue(bindingContext.ModelName);
+
+            if (!string.IsNullOrEmpty(displayFormat) && value != null)
+            {
+                DateTime date;
+                displayFormat = displayFormat.Replace("{0:", string.Empty).Replace("}", string.Empty);
+                // use the format specified in the DisplayFormat attribute to parse the date
+                if (DateTime.TryParseExact(value.AttemptedValue, displayFormat, System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out date))
+                {
+                    return date;
+                }
+                else
+                {
+                    bindingContext.ModelState.AddModelError(
+                        bindingContext.ModelName,
+                        string.Format("{0} 错误的日期格式", value.AttemptedValue)
+                    );
+                }
+            }
+
+            return base.BindModel(controllerContext, bindingContext);
+        }
     }
 }
