@@ -73,7 +73,7 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.AuthorId, "作者", new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.DropDownList("AuthorId", ViewData["authors"] as SelectList, new { @class = "form-control" })
+                        @Html.DropDownList("AuthorId", ViewBag.AuthorId as SelectList, new { @class = "form-control" })
                         @Html.ValidationMessageFor(model => model.AuthorId)
                     </div>
                 </div>

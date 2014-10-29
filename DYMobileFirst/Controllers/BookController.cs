@@ -62,8 +62,13 @@ namespace DYMobileFirst.Controllers
         [HttpGet]
         public JsonResult CheckTitleExists(string Title)
         {
+            var meth = Request.UrlReferrer.AbsolutePath.ToLower();
             var book = db.Books.FirstOrDefault(b => b.Title == Title);
-            return Json(book == null ? true : false, JsonRequestBehavior.AllowGet);
+            if (meth.Contains("create"))
+            {
+                return Json(book == null ? true : false, JsonRequestBehavior.AllowGet);
+            }
+            return Json(true, JsonRequestBehavior.AllowGet);
         }  
 
         [HttpPost]
