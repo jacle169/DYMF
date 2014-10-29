@@ -118,6 +118,18 @@ namespace DYMobileFirst.Controllers
             {
                 if (files.Count() > 0)
                 {
+                    foreach (var file in files)
+                    {
+                        if (file != null && file.ContentLength > 0)
+                        {
+                            if (!HttpPostedFileBaseExtensions.IsImage(file))
+                            {
+                                ViewBag.AuthorId = new SelectList(db.Authors, "Id", "Name", book.AuthorId);
+                                return View(book);
+                            }
+                        }
+                    }
+
                     List<string> imgs = new List<string>();
                     foreach (var file in files)
                     {
