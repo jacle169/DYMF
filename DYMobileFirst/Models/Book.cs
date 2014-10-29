@@ -10,6 +10,11 @@ namespace DYMobileFirst.Models
 {
     public class Book
     {
+        public Book()
+        {
+            imgs = Newtonsoft.Json.JsonConvert.SerializeObject(new List<string>());
+        }
+
         [Key]
         public int Id { get; set; }
 
@@ -47,6 +52,8 @@ namespace DYMobileFirst.Models
         [Display(Name = "签售")]
         public bool pub { get; set; }
 
+        [MaxLength]
+        [Column(TypeName = "ntext")]
         public string imgs { get; set; }
 
         // Foreign Key

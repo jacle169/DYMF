@@ -13,8 +13,8 @@
             </h4>
         </div>
 
-        @using (Html.BeginForm())
-        {
+        @using (Html.BeginForm("Edit", "Book", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
             @Html.AntiForgeryToken()
 
             <div class="form-horizontal">
@@ -79,6 +79,25 @@
                     </div>
                 </div>
 
+                <div class="form-group hidden">
+                    @Html.LabelFor(model => model.imgs, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.imgs)
+                        @Html.ValidationMessageFor(model => model.imgs)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2">商品图</label>
+                    <div class="col-md-10">
+                        <input type="file" name="files" id="file1" onchange="checkImgType(this)" />
+                        <input type="file" name="files" id="file2" onchange="checkImgType(this)" />
+                        <input type="file" name="files" id="file3" onchange="checkImgType(this)" />
+                        <input type="file" name="files" id="file4" onchange="checkImgType(this)" />
+                        <input type="file" name="files" id="file5" onchange="checkImgType(this)" />
+                    </div>
+                </div>
+
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
                         <input type="submit" value="保存" class="btn btn-default" />
@@ -93,5 +112,19 @@
     </section>
 </section>
 @section Scripts {
-
+    <script type="text/javascript">
+        function checkImgType(ths) {
+            if (ths.value == "") {
+                return false;
+            } else {
+                if (!/\.(gif|jpg|jpeg|png|GIF|JPG|PNG)$/.test(ths.value)) {
+                    alert("图片类型必须是.gif,jpeg,jpg,png中的一种");
+                    ths.value = "";
+                    return false;
+                }
+            }
+            return true;
+        }
+    </script>
+}
 }

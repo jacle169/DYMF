@@ -177,10 +177,53 @@ namespace DYMobileFirst.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include="Id,Title,ReleaseDate,Genre,Price,staute,pub,AuthorId")] Book book)
+        public async Task<ActionResult> Edit([Bind(Include="Id,Title,ReleaseDate,Genre,Price,staute,pub,AuthorId,imgs")] Book book, IEnumerable<HttpPostedFileBase> files)
         {
             if (ModelState.IsValid)
             {
+                if (files.Count() > 0)
+                {
+                    foreach (var file in files)
+                    {
+                        if (file != null && file.ContentLength > 0)
+                        {
+                            if (!HttpPostedFileBaseExtensions.IsImage(file))
+                            {
+                                ViewBag.AuthorId = new SelectList(db.Authors, "Id", "Name", book.AuthorId);
+                                return View(book);
+                            }
+                        }
+                    }
+
+                    var oldImgs = Newtonsoft.Json.JsonConvert.DeserializeObject<List<string>>(book.imgs);
+                    var fs = files.ToList();
+                    for (int i = 0; i < fs.Count; i++)
+                    {
+                        if (fs[i] != null && fs[i].ContentLength > 0)
+                        {
+                            if (oldImgs.Count > i)
+                            {
+                                var delpath = Path.Combine(Server.MapPath("~/uploads"), oldImgs[i]);
+                                System.IO.File.Delete(delpath);
+                                var ext = Path.GetExtension(fs[i].FileName);
+                                var fileName = Guid.NewGuid().ToString("n") + ext;
+                                var path = Path.Combine(Server.MapPath("~/uploads"), fileName);
+                                fs[i].SaveAs(path);
+                                oldImgs[i] = fileName;
+                            }
+                            else
+                            {
+                                var ext = Path.GetExtension(fs[i].FileName);
+                                var fileName = Guid.NewGuid().ToString("n") + ext;
+                                var path = Path.Combine(Server.MapPath("~/uploads"), fileName);
+                                fs[i].SaveAs(path);
+                                oldImgs.Add(fileName);
+                            }
+                        }
+                    }
+                    book.imgs = Newtonsoft.Json.JsonConvert.SerializeObject(oldImgs);
+                }
+
                 db.Entry(book).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index", new { pi = 1, ps = 15 });

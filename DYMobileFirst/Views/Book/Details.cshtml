@@ -72,8 +72,23 @@
                 <dd>
                     @Html.DisplayFor(model => model.pub)
                 </dd>
+                
                 <dd>
                     @Html.DisplayFor(x => x.Author)
+                </dd>
+
+                <dt>
+                    商品图
+                </dt>
+
+                <dd>
+                    @{
+                        var imgs = Newtonsoft.Json.JsonConvert.DeserializeObject<List<string>>(Model.imgs);
+                        foreach (var img in imgs)
+                        {
+                            <img src="~/uploads/@img" alt="@img" width="200">
+                        }
+                    }
                 </dd>
             </dl>
         </div>
