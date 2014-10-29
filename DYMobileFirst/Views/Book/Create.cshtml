@@ -81,11 +81,11 @@
                 <div class="form-group">
                     <label class="control-label col-md-2">商品图</label>
                     <div class="col-md-10">
-                        <input type="file" name="files" id="file1" onchange="checkImgType(this)" />
-                        <input type="file" name="files" id="file2" onchange="checkImgType(this)" />
-                        <input type="file" name="files" id="file3" onchange="checkImgType(this)" />
-                        <input type="file" name="files" id="file4" onchange="checkImgType(this)" />
-                        <input type="file" name="files" id="file5" onchange="checkImgType(this)" />
+                        <input type="file" name="files" id="file1" />
+                        <input type="file" name="files" id="file2" />
+                        <input type="file" name="files" id="file3" />
+                        <input type="file" name="files" id="file4" />
+                        <input type="file" name="files" id="file5" />
                     </div>
                 </div>
 
@@ -103,18 +103,4 @@
     </section>
 </section>
 @section Scripts {
-<script type="text/javascript">   
-    function checkImgType(ths) {
-        if (ths.value == "") {
-            return false;
-        } else {
-            if (!/\.(gif|jpg|jpeg|png|GIF|JPG|PNG)$/.test(ths.value)) {
-                alert("图片类型必须是.gif,jpeg,jpg,png中的一种");
-                ths.value = "";
-                return false;
-            }
-        }
-        return true;
-    }
-</script>
 }
