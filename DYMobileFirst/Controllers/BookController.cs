@@ -69,13 +69,20 @@ namespace DYMobileFirst.Controllers
                 return Json(book == null ? true : false, JsonRequestBehavior.AllowGet);
             }
             return Json(true, JsonRequestBehavior.AllowGet);
-        }  
+        }
 
-        [HttpPost]
-        public JsonResult GetCustomersNames()
+        public JsonResult SearchTitles(string searchTerm)
         {
-            var allItems = db.Authors.Select(c => c.Name);
-            return Json(new { Items = allItems });
+            var result = db.Books.Where(b => b.Title.Contains(searchTerm)).Select(a => new 
+            {
+                id = a.Id, 
+                text = a.Title,
+                price=a.Price,
+                pub=a.pub,
+                date=a.ReleaseDate,
+                em =a.staute
+            });
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
 
         // GET: /Book/Details/5

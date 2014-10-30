@@ -23,6 +23,13 @@
                 @Html.ValidationSummary(true)
 
                 <div class="form-group">
+                    @Html.LabelFor(model => model.Title,"自动查询", new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.Hidden("ajaxSelect", "", new { style = "width:300px" })
+                    </div>
+                </div>
+
+                <div class="form-group">
                     @Html.LabelFor(model => model.Title, new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
                         @Html.EditorFor(model => model.Title)
@@ -103,4 +110,29 @@
     </section>
 </section>
 @section Scripts {
+<script type="text/javascript">
+    $(function () {
+        //this javascript call sets up the select2 that loads search results via ajax calls
+        $('#ajaxSelect').select2({
+            placeholder: '输入书名自动完成',
+            minimumInputLength: 1,
+            ajax: {
+                url: '@Url.Action("SearchTitles", "Book")',
+                dataType: 'json',
+                data: function (term, page) {
+                    return {
+                        searchTerm: term
+                    };
+                },
+                results: function (data, page) {
+                    return { results: data };
+                }
+            }
+        });
+    });
+    $("#ajaxSelect").on("select2-selecting", function (e) {
+        alert("selecting val=" + e.val + " choice=" + JSON.stringify(e.choice));
+        //$("#Title").val(e.choice.text);
+    })
+</script>
 }

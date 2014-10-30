@@ -71,7 +71,7 @@ namespace DYMobileFirst
 "~/js/parsley/parsley.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/select2").Include(
-"~/js/select2/select2.min.js"));
+"~/js/select2/select2.js", "~/js/select2/select2_locale_zh-CN.js"));
 
 
 
@@ -113,7 +113,7 @@ namespace DYMobileFirst
                       "~/css/app.v2.css"));
 
             bundles.Add(new StyleBundle("~/Content/select2").Include(
-          "~/js/select2/select2.css"));
+          "~/js/select2/select2.css", "~/js/select2/select2-bootstrap.css"));
 
             bundles.Add(new StyleBundle("~/Content/footable").Include(
 "~/css/footable.core.css", "~/css/footable.metro.css"));

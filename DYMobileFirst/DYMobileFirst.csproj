@@ -234,8 +234,13 @@
     <Content Include="js\parsley\parsley.min.js" />
     <Content Include="js\prettyphoto\jquery.prettyPhoto.js" />
     <Content Include="js\prettyphoto\prettyPhoto.css" />
+    <Content Include="js\select2\select2-bootstrap.css" />
+    <Content Include="js\select2\select2-spinner.gif" />
     <Content Include="js\select2\select2.css" />
-    <Content Include="js\select2\select2.min.js" />
+    <Content Include="js\select2\select2.js" />
+    <Content Include="js\select2\select2.png" />
+    <Content Include="js\select2\select2x2.png" />
+    <Content Include="js\select2\select2_locale_zh-CN.js" />
     <Content Include="js\slider\bootstrap-slider.js" />
     <Content Include="js\underscore-min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />

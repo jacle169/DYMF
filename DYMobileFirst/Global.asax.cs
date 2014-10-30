@@ -24,7 +24,7 @@ namespace DYMobileFirst
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            BundleTable.EnableOptimizations = true;//是否启用优化
+            //BundleTable.EnableOptimizations = true;//是否启用优化
 
             using (var dbcontext = new BookDBContext())
             {
