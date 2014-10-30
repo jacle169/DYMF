@@ -74,7 +74,6 @@ namespace DYMobileFirst
 "~/js/select2/select2.js", "~/js/select2/select2_locale_zh-CN.js"));
 
 
-
             bundles.Add(new ScriptBundle("~/bundles/flotmin").Include(
 "~/js/charts/flot/jquery.flot.min.js"));
 
@@ -120,6 +119,7 @@ namespace DYMobileFirst
 
             bundles.Add(new StyleBundle("~/Content/move").Include(
 "~/js/movetop/move.css"));
+
         }
     }
 }

@@ -25,7 +25,7 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.Title,"自动查询", new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.Hidden("ajaxSelect", "", new { style = "width:300px" })
+                        @Html.Hidden("ajaxSelect", "", new { style = "width:100%" })
                     </div>
                 </div>
 
@@ -138,7 +138,12 @@
     });
     $("#ajaxSelect").on("select2-selecting", function (e) {
         alert("selecting val=" + e.val + " choice=" + JSON.stringify(e.choice));
-        //$("#Title").val(e.choice.text);
+        $("#Title").val(e.choice.text);
+        $("#Price").val(e.choice.price);
+        //em服务端要tostring
+        $("#staute").val(e.choice.em);
+        $("#pub").val(e.choice.pub);
+        $("#AuthorId").val(e.choice.author);
     })
 </script>
 }

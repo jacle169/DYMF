@@ -73,15 +73,16 @@ namespace DYMobileFirst.Controllers
 
         public JsonResult SearchTitles(string searchTerm)
         {
-            var result = db.Books.Where(b => b.Title.Contains(searchTerm) || b.Genre.Contains(searchTerm)).Select(a => new 
+            var result = db.Books.Where(b => b.Title.Contains(searchTerm) || b.Genre.Contains(searchTerm)).Include(b => b.Author).Select(a => new 
             {
                 id = a.Id, 
                 text = a.Title,
                 price=a.Price,
-                pub=a.pub,
+                pub=a.pub.ToString(),
                 date=a.ReleaseDate,
-                em =a.staute,
-                genre = a.Genre
+                em =a.staute.ToString(),
+                genre = a.Genre,
+                author = a.Author.Id
             });
             return Json(result, JsonRequestBehavior.AllowGet);
         }
@@ -108,7 +109,7 @@ namespace DYMobileFirst.Controllers
             Book book = new Book();
             book.Title = "书名";
             book.Price = 1;
-            book.pub = true;
+            book.pub =  em_bool.否;
             book.ReleaseDate = DateTime.Now;
             book.staute = em_staute.普通;
             ViewBag.AuthorId = new SelectList(db.Authors, "Id", "Name");

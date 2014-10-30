@@ -46,7 +46,7 @@ namespace DYMobileFirst.Models
                     Author = c,
                     ReleaseDate = new DateTime(2013, 2, 1),
                     staute = em_staute.好,
-                    pub = true
+                    pub =  em_bool.是
                 });
             context.Books.Add(new Book()
             {
@@ -57,7 +57,7 @@ namespace DYMobileFirst.Models
                 Author = c,
                 ReleaseDate = new DateTime(2012, 5, 1),
                 staute = em_staute.普通,
-                pub = false
+                pub = em_bool.否
             });
             context.Books.Add(new Book()
             {
@@ -68,7 +68,7 @@ namespace DYMobileFirst.Models
                 Author = d,
                 ReleaseDate = new DateTime(2013, 9, 1),
                 staute = em_staute.普通,
-                pub = false
+                pub =  em_bool.否
             });
             context.Books.Add(
                 new Book()
@@ -80,7 +80,7 @@ namespace DYMobileFirst.Models
                     Author = c,
                     ReleaseDate = new DateTime(2013, 2, 1),
                     staute = em_staute.好,
-                    pub = true
+                    pub = em_bool.是
                 });
             context.Books.Add(new Book()
             {
@@ -91,7 +91,7 @@ namespace DYMobileFirst.Models
                 Author = c,
                 ReleaseDate = new DateTime(2012, 5, 1),
                 staute = em_staute.普通,
-                pub = false
+                pub = em_bool.否
             });
             context.Books.Add(new Book()
             {
@@ -102,7 +102,7 @@ namespace DYMobileFirst.Models
                 Author = d,
                 ReleaseDate = new DateTime(2013, 9, 1),
                 staute = em_staute.普通,
-                pub = false
+                pub = em_bool.否
             }); context.Books.Add(
                  new Book()
                  {
@@ -113,7 +113,7 @@ namespace DYMobileFirst.Models
                      Author = c,
                      ReleaseDate = new DateTime(2013, 2, 1),
                      staute = em_staute.好,
-                     pub = true
+                     pub = em_bool.是
                  });
             context.Books.Add(new Book()
             {
@@ -124,7 +124,7 @@ namespace DYMobileFirst.Models
                 Author = c,
                 ReleaseDate = new DateTime(2012, 5, 1),
                 staute = em_staute.普通,
-                pub = false
+                pub = em_bool.否
             });
             context.Books.Add(new Book()
             {
@@ -135,7 +135,7 @@ namespace DYMobileFirst.Models
                 Author = d,
                 ReleaseDate = new DateTime(2013, 9, 1),
                 staute = em_staute.普通,
-                pub = false
+                pub = em_bool.否
             }); context.Books.Add(
                  new Book()
                  {
@@ -146,7 +146,7 @@ namespace DYMobileFirst.Models
                      Author = c,
                      ReleaseDate = new DateTime(2013, 2, 1),
                      staute = em_staute.好,
-                     pub = true
+                     pub = em_bool.是
                  });
             context.Books.Add(new Book()
             {
@@ -157,7 +157,7 @@ namespace DYMobileFirst.Models
                 Author = c,
                 ReleaseDate = new DateTime(2012, 5, 1),
                 staute = em_staute.普通,
-                pub = false
+                pub = em_bool.否
             });
             context.Books.Add(new Book()
             {
@@ -168,7 +168,7 @@ namespace DYMobileFirst.Models
                 Author = d,
                 ReleaseDate = new DateTime(2013, 9, 1),
                 staute = em_staute.普通,
-                pub = false
+                pub = em_bool.否
             }); context.Books.Add(
                  new Book()
                  {
@@ -179,7 +179,7 @@ namespace DYMobileFirst.Models
                      Author = c,
                      ReleaseDate = new DateTime(2013, 2, 1),
                      staute = em_staute.好,
-                     pub = true
+                     pub = em_bool.是
                  });
             context.Books.Add(new Book()
             {
@@ -190,7 +190,7 @@ namespace DYMobileFirst.Models
                 Author = c,
                 ReleaseDate = new DateTime(2012, 5, 1),
                 staute = em_staute.普通,
-                pub = false
+                pub = em_bool.否
             });
             context.Books.Add(new Book()
             {
@@ -201,506 +201,7 @@ namespace DYMobileFirst.Models
                 Author = d,
                 ReleaseDate = new DateTime(2013, 9, 1),
                 staute = em_staute.普通,
-                pub = false
-            }); context.Books.Add(
-                 new Book()
-                 {
-                     Title = "射雕英雄传（全四册）（新修版）",
-                     Price = 61.9m,
-                     AuthorId = c.Id,
-                     Genre = "广州出版社",
-                     Author = c,
-                     ReleaseDate = new DateTime(2013, 2, 1),
-                     staute = em_staute.好,
-                     pub = true
-                 });
-            context.Books.Add(new Book()
-            {
-                Title = "梁羽生作品集（全集73册，共两箱）",
-                Price = 1494.4m,
-                AuthorId = c.Id,
-                Genre = "中山大学出版社",
-                Author = c,
-                ReleaseDate = new DateTime(2012, 5, 1),
-                staute = em_staute.普通,
-                pub = false
-            });
-            context.Books.Add(new Book()
-            {
-                Title = "绝代双骄",
-                Price = 85m,
-                Genre = "河南文艺出版社",
-                AuthorId = d.Id,
-                Author = d,
-                ReleaseDate = new DateTime(2013, 9, 1),
-                staute = em_staute.普通,
-                pub = false
-            }); context.Books.Add(
-                 new Book()
-                 {
-                     Title = "射雕英雄传（全四册）（新修版）",
-                     Price = 61.9m,
-                     AuthorId = c.Id,
-                     Genre = "广州出版社",
-                     Author = c,
-                     ReleaseDate = new DateTime(2013, 2, 1),
-                     staute = em_staute.好,
-                     pub = true
-                 });
-            context.Books.Add(new Book()
-            {
-                Title = "梁羽生作品集（全集73册，共两箱）",
-                Price = 1494.4m,
-                AuthorId = c.Id,
-                Genre = "中山大学出版社",
-                Author = c,
-                ReleaseDate = new DateTime(2012, 5, 1),
-                staute = em_staute.普通,
-                pub = false
-            });
-            context.Books.Add(new Book()
-            {
-                Title = "绝代双骄",
-                Price = 85m,
-                Genre = "河南文艺出版社",
-                AuthorId = d.Id,
-                Author = d,
-                ReleaseDate = new DateTime(2013, 9, 1),
-                staute = em_staute.普通,
-                pub = false
-            }); context.Books.Add(
-                 new Book()
-                 {
-                     Title = "射雕英雄传（全四册）（新修版）",
-                     Price = 61.9m,
-                     AuthorId = c.Id,
-                     Genre = "广州出版社",
-                     Author = c,
-                     ReleaseDate = new DateTime(2013, 2, 1),
-                     staute = em_staute.好,
-                     pub = true
-                 });
-            context.Books.Add(new Book()
-            {
-                Title = "梁羽生作品集（全集73册，共两箱）",
-                Price = 1494.4m,
-                AuthorId = c.Id,
-                Genre = "中山大学出版社",
-                Author = c,
-                ReleaseDate = new DateTime(2012, 5, 1),
-                staute = em_staute.普通,
-                pub = false
-            });
-            context.Books.Add(new Book()
-            {
-                Title = "绝代双骄",
-                Price = 85m,
-                Genre = "河南文艺出版社",
-                AuthorId = d.Id,
-                Author = d,
-                ReleaseDate = new DateTime(2013, 9, 1),
-                staute = em_staute.普通,
-                pub = false
-            }); context.Books.Add(
-                 new Book()
-                 {
-                     Title = "射雕英雄传（全四册）（新修版）",
-                     Price = 61.9m,
-                     AuthorId = c.Id,
-                     Genre = "广州出版社",
-                     Author = c,
-                     ReleaseDate = new DateTime(2013, 2, 1),
-                     staute = em_staute.好,
-                     pub = true
-                 });
-            context.Books.Add(new Book()
-            {
-                Title = "梁羽生作品集（全集73册，共两箱）",
-                Price = 1494.4m,
-                AuthorId = c.Id,
-                Genre = "中山大学出版社",
-                Author = c,
-                ReleaseDate = new DateTime(2012, 5, 1),
-                staute = em_staute.普通,
-                pub = false
-            });
-            context.Books.Add(new Book()
-            {
-                Title = "绝代双骄",
-                Price = 85m,
-                Genre = "河南文艺出版社",
-                AuthorId = d.Id,
-                Author = d,
-                ReleaseDate = new DateTime(2013, 9, 1),
-                staute = em_staute.普通,
-                pub = false
-            }); context.Books.Add(
-                 new Book()
-                 {
-                     Title = "射雕英雄传（全四册）（新修版）",
-                     Price = 61.9m,
-                     AuthorId = c.Id,
-                     Genre = "广州出版社",
-                     Author = c,
-                     ReleaseDate = new DateTime(2013, 2, 1),
-                     staute = em_staute.好,
-                     pub = true
-                 });
-            context.Books.Add(new Book()
-            {
-                Title = "梁羽生作品集（全集73册，共两箱）",
-                Price = 1494.4m,
-                AuthorId = c.Id,
-                Genre = "中山大学出版社",
-                Author = c,
-                ReleaseDate = new DateTime(2012, 5, 1),
-                staute = em_staute.普通,
-                pub = false
-            });
-            context.Books.Add(new Book()
-            {
-                Title = "绝代双骄",
-                Price = 85m,
-                Genre = "河南文艺出版社",
-                AuthorId = d.Id,
-                Author = d,
-                ReleaseDate = new DateTime(2013, 9, 1),
-                staute = em_staute.普通,
-                pub = false
-            }); context.Books.Add(
-                 new Book()
-                 {
-                     Title = "射雕英雄传（全四册）（新修版）",
-                     Price = 61.9m,
-                     AuthorId = c.Id,
-                     Genre = "广州出版社",
-                     Author = c,
-                     ReleaseDate = new DateTime(2013, 2, 1),
-                     staute = em_staute.好,
-                     pub = true
-                 });
-            context.Books.Add(new Book()
-            {
-                Title = "梁羽生作品集（全集73册，共两箱）",
-                Price = 1494.4m,
-                AuthorId = c.Id,
-                Genre = "中山大学出版社",
-                Author = c,
-                ReleaseDate = new DateTime(2012, 5, 1),
-                staute = em_staute.普通,
-                pub = false
-            });
-            context.Books.Add(new Book()
-            {
-                Title = "绝代双骄",
-                Price = 85m,
-                Genre = "河南文艺出版社",
-                AuthorId = d.Id,
-                Author = d,
-                ReleaseDate = new DateTime(2013, 9, 1),
-                staute = em_staute.普通,
-                pub = false
-            }); context.Books.Add(
-                 new Book()
-                 {
-                     Title = "射雕英雄传（全四册）（新修版）",
-                     Price = 61.9m,
-                     AuthorId = c.Id,
-                     Genre = "广州出版社",
-                     Author = c,
-                     ReleaseDate = new DateTime(2013, 2, 1),
-                     staute = em_staute.好,
-                     pub = true
-                 });
-            context.Books.Add(new Book()
-            {
-                Title = "梁羽生作品集（全集73册，共两箱）",
-                Price = 1494.4m,
-                AuthorId = c.Id,
-                Genre = "中山大学出版社",
-                Author = c,
-                ReleaseDate = new DateTime(2012, 5, 1),
-                staute = em_staute.普通,
-                pub = false
-            });
-            context.Books.Add(new Book()
-            {
-                Title = "绝代双骄",
-                Price = 85m,
-                Genre = "河南文艺出版社",
-                AuthorId = d.Id,
-                Author = d,
-                ReleaseDate = new DateTime(2013, 9, 1),
-                staute = em_staute.普通,
-                pub = false
-            }); context.Books.Add(
-                 new Book()
-                 {
-                     Title = "射雕英雄传（全四册）（新修版）",
-                     Price = 61.9m,
-                     AuthorId = c.Id,
-                     Genre = "广州出版社",
-                     Author = c,
-                     ReleaseDate = new DateTime(2013, 2, 1),
-                     staute = em_staute.好,
-                     pub = true
-                 });
-            context.Books.Add(new Book()
-            {
-                Title = "梁羽生作品集（全集73册，共两箱）",
-                Price = 1494.4m,
-                AuthorId = c.Id,
-                Genre = "中山大学出版社",
-                Author = c,
-                ReleaseDate = new DateTime(2012, 5, 1),
-                staute = em_staute.普通,
-                pub = false
-            });
-            context.Books.Add(new Book()
-            {
-                Title = "绝代双骄",
-                Price = 85m,
-                Genre = "河南文艺出版社",
-                AuthorId = d.Id,
-                Author = d,
-                ReleaseDate = new DateTime(2013, 9, 1),
-                staute = em_staute.普通,
-                pub = false
-            }); context.Books.Add(
-                 new Book()
-                 {
-                     Title = "射雕英雄传（全四册）（新修版）",
-                     Price = 61.9m,
-                     AuthorId = c.Id,
-                     Genre = "广州出版社",
-                     Author = c,
-                     ReleaseDate = new DateTime(2013, 2, 1),
-                     staute = em_staute.好,
-                     pub = true
-                 });
-            context.Books.Add(new Book()
-            {
-                Title = "梁羽生作品集（全集73册，共两箱）",
-                Price = 1494.4m,
-                AuthorId = c.Id,
-                Genre = "中山大学出版社",
-                Author = c,
-                ReleaseDate = new DateTime(2012, 5, 1),
-                staute = em_staute.普通,
-                pub = false
-            });
-            context.Books.Add(new Book()
-            {
-                Title = "绝代双骄",
-                Price = 85m,
-                Genre = "河南文艺出版社",
-                AuthorId = d.Id,
-                Author = d,
-                ReleaseDate = new DateTime(2013, 9, 1),
-                staute = em_staute.普通,
-                pub = false
-            }); context.Books.Add(
-                 new Book()
-                 {
-                     Title = "射雕英雄传（全四册）（新修版）",
-                     Price = 61.9m,
-                     AuthorId = c.Id,
-                     Genre = "广州出版社",
-                     Author = c,
-                     ReleaseDate = new DateTime(2013, 2, 1),
-                     staute = em_staute.好,
-                     pub = true
-                 });
-            context.Books.Add(new Book()
-            {
-                Title = "梁羽生作品集（全集73册，共两箱）",
-                Price = 1494.4m,
-                AuthorId = c.Id,
-                Genre = "中山大学出版社",
-                Author = c,
-                ReleaseDate = new DateTime(2012, 5, 1),
-                staute = em_staute.普通,
-                pub = false
-            });
-            context.Books.Add(new Book()
-            {
-                Title = "绝代双骄",
-                Price = 85m,
-                Genre = "河南文艺出版社",
-                AuthorId = d.Id,
-                Author = d,
-                ReleaseDate = new DateTime(2013, 9, 1),
-                staute = em_staute.普通,
-                pub = false
-            }); context.Books.Add(
-                 new Book()
-                 {
-                     Title = "射雕英雄传（全四册）（新修版）",
-                     Price = 61.9m,
-                     AuthorId = c.Id,
-                     Genre = "广州出版社",
-                     Author = c,
-                     ReleaseDate = new DateTime(2013, 2, 1),
-                     staute = em_staute.好,
-                     pub = true
-                 });
-            context.Books.Add(new Book()
-            {
-                Title = "梁羽生作品集（全集73册，共两箱）",
-                Price = 1494.4m,
-                AuthorId = c.Id,
-                Genre = "中山大学出版社",
-                Author = c,
-                ReleaseDate = new DateTime(2012, 5, 1),
-                staute = em_staute.普通,
-                pub = false
-            });
-            context.Books.Add(new Book()
-            {
-                Title = "绝代双骄",
-                Price = 85m,
-                Genre = "河南文艺出版社",
-                AuthorId = d.Id,
-                Author = d,
-                ReleaseDate = new DateTime(2013, 9, 1),
-                staute = em_staute.普通,
-                pub = false
-            });
-            context.Books.Add(
-                new Book()
-                {
-                    Title = "射雕英雄传（全四册）（新修版）",
-                    Price = 61.9m,
-                    AuthorId = c.Id,
-                    Genre = "广州出版社",
-                    Author = c,
-                    ReleaseDate = new DateTime(2013, 2, 1),
-                    staute = em_staute.好,
-                    pub = true
-                });
-            context.Books.Add(new Book()
-            {
-                Title = "梁羽生作品集（全集73册，共两箱）",
-                Price = 1494.4m,
-                AuthorId = c.Id,
-                Genre = "中山大学出版社",
-                Author = c,
-                ReleaseDate = new DateTime(2012, 5, 1),
-                staute = em_staute.普通,
-                pub = false
-            });
-            context.Books.Add(new Book()
-            {
-                Title = "绝代双骄",
-                Price = 85m,
-                Genre = "河南文艺出版社",
-                AuthorId = d.Id,
-                Author = d,
-                ReleaseDate = new DateTime(2013, 9, 1),
-                staute = em_staute.普通,
-                pub = false
-            });
-            context.Books.Add(
-                new Book()
-                {
-                    Title = "射雕英雄传（全四册）（新修版）",
-                    Price = 61.9m,
-                    AuthorId = c.Id,
-                    Genre = "广州出版社",
-                    Author = c,
-                    ReleaseDate = new DateTime(2013, 2, 1),
-                    staute = em_staute.好,
-                    pub = true
-                });
-            context.Books.Add(new Book()
-            {
-                Title = "梁羽生作品集（全集73册，共两箱）",
-                Price = 1494.4m,
-                AuthorId = c.Id,
-                Genre = "中山大学出版社",
-                Author = c,
-                ReleaseDate = new DateTime(2012, 5, 1),
-                staute = em_staute.普通,
-                pub = false
-            });
-            context.Books.Add(new Book()
-            {
-                Title = "绝代双骄",
-                Price = 85m,
-                Genre = "河南文艺出版社",
-                AuthorId = d.Id,
-                Author = d,
-                ReleaseDate = new DateTime(2013, 9, 1),
-                staute = em_staute.普通,
-                pub = false
-            });
-            context.Books.Add(
-                new Book()
-                {
-                    Title = "射雕英雄传（全四册）（新修版）",
-                    Price = 61.9m,
-                    AuthorId = c.Id,
-                    Genre = "广州出版社",
-                    Author = c,
-                    ReleaseDate = new DateTime(2013, 2, 1),
-                    staute = em_staute.好,
-                    pub = true
-                });
-            context.Books.Add(new Book()
-            {
-                Title = "梁羽生作品集（全集73册，共两箱）",
-                Price = 1494.4m,
-                AuthorId = c.Id,
-                Genre = "中山大学出版社",
-                Author = c,
-                ReleaseDate = new DateTime(2012, 5, 1),
-                staute = em_staute.普通,
-                pub = false
-            });
-            context.Books.Add(new Book()
-            {
-                Title = "绝代双骄",
-                Price = 85m,
-                Genre = "河南文艺出版社",
-                AuthorId = d.Id,
-                Author = d,
-                ReleaseDate = new DateTime(2013, 9, 1),
-                staute = em_staute.普通,
-                pub = false
-            });
-            context.Books.Add(
-                new Book()
-                {
-                    Title = "射雕英雄传（全四册）（新修版）",
-                    Price = 61.9m,
-                    AuthorId = c.Id,
-                    Genre = "广州出版社",
-                    Author = c,
-                    ReleaseDate = new DateTime(2013, 2, 1),
-                    staute = em_staute.好,
-                    pub = true
-                });
-            context.Books.Add(new Book()
-            {
-                Title = "梁羽生作品集（全集73册，共两箱）",
-                Price = 1494.4m,
-                AuthorId = c.Id,
-                Genre = "中山大学出版社",
-                Author = c,
-                ReleaseDate = new DateTime(2012, 5, 1),
-                staute = em_staute.普通,
-                pub = false
-            });
-            context.Books.Add(new Book()
-            {
-                Title = "绝代双骄",
-                Price = 85m,
-                Genre = "河南文艺出版社",
-                AuthorId = d.Id,
-                Author = d,
-                ReleaseDate = new DateTime(2013, 9, 1),
-                staute = em_staute.普通,
-                pub = false
+                pub = em_bool.否
             });
             context.SaveChanges();
         }

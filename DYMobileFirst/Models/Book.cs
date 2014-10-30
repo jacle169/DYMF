@@ -50,7 +50,8 @@ namespace DYMobileFirst.Models
         public em_staute staute { get; set; }
 
         [Display(Name = "签售")]
-        public bool pub { get; set; }
+        [UIHint("Enum")]
+        public em_bool pub { get; set; }
 
         [MaxLength]
         [Column(TypeName = "ntext")]
@@ -71,8 +72,13 @@ namespace DYMobileFirst.Models
         public string Name { get; set; }
     }
 
+    public enum em_bool
+    {
+        是, 否
+    }
+
     public enum em_staute
     {
-        普通 = 0, 好 = 1, 非凡 = 2
+        普通, 好, 非凡
     }
 }
