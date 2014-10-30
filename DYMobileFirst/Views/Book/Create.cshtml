@@ -111,11 +111,17 @@
 </section>
 @section Scripts {
 <script type="text/javascript">
+    function format(state) {
+        //if (!state.id) return state.text; // optgroup
+        //return "<img class='flag' src='images/flags/" + state.id.toLowerCase() + ".png'/>" + state.text;
+        return state.text + "/" + state.genre + "/￥" + state.price;
+    }
     $(function () {
         //this javascript call sets up the select2 that loads search results via ajax calls
         $('#ajaxSelect').select2({
             placeholder: '输入书名自动完成',
             minimumInputLength: 1,
+            formatResult: format,
             ajax: {
                 url: '@Url.Action("SearchTitles", "Book")',
                 dataType: 'json',

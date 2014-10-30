@@ -73,14 +73,15 @@ namespace DYMobileFirst.Controllers
 
         public JsonResult SearchTitles(string searchTerm)
         {
-            var result = db.Books.Where(b => b.Title.Contains(searchTerm)).Select(a => new 
+            var result = db.Books.Where(b => b.Title.Contains(searchTerm) || b.Genre.Contains(searchTerm)).Select(a => new 
             {
                 id = a.Id, 
                 text = a.Title,
                 price=a.Price,
                 pub=a.pub,
                 date=a.ReleaseDate,
-                em =a.staute
+                em =a.staute,
+                genre = a.Genre
             });
             return Json(result, JsonRequestBehavior.AllowGet);
         }
