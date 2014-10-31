@@ -59,7 +59,7 @@ namespace DYMobileFirst.Controllers
             return View(await books.Skip(startRow).Take(ps.Value).ToListAsync());
         }
 
-        [HttpGet]
+        [HttpPost]
         public JsonResult CheckTitleExists(string Title)
         {
             var meth = Request.UrlReferrer.AbsolutePath.ToLower();

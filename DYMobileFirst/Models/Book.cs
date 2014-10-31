@@ -21,7 +21,7 @@ namespace DYMobileFirst.Models
         [Required(ErrorMessage = "书名不能空")]
         [Display(Name = "名书")]
         [StringLength(128, MinimumLength = 1, ErrorMessage = "字长要在1至128之间")]
-        [Remote("CheckTitleExists", "Book", ErrorMessage = "书名已存在")] // 远程验证（Ajax）  
+        [Remote("CheckTitleExists", "Book", HttpMethod = "POST", ErrorMessage = "书名已存在")] // 远程验证（Ajax）  
         public string Title { get; set; }
         [Required(ErrorMessage = "日期不能空")]
         [Display(Name = "发布日期")]
