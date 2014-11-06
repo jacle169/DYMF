@@ -43,6 +43,7 @@ namespace DYMobileFirst.Models
         [Display(Name = "售价")]
         [Range(1, 999999999)]
         [DataType(DataType.Currency)]
+        [DisplayFormat(DataFormatString = "{0:0.##}", ApplyFormatInEditMode = true)]
         public decimal Price { get; set; }
 
         [Display(Name = "评价")]

@@ -13,7 +13,7 @@ using System.Globalization;
 
 namespace DYMobileFirst.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class BookController : Controller
     {
         private BookDBContext db = new BookDBContext();
@@ -240,6 +240,19 @@ namespace DYMobileFirst.Controllers
             ViewBag.AuthorId = new SelectList(db.Authors, "Id", "Name", book.AuthorId);
             return View(book);
         }
+
+        [HttpPost]
+        public ActionResult BatchDelete(IEnumerable<int> Ids)
+        {
+            foreach (var id in Ids)
+            {
+                var book = db.Books.Single(s => s.Id == id);
+
+                db.Books.Remove(book);
+            }
+            db.SaveChanges();
+            return RedirectToAction("BatchDelete");
+        }  
 
         // GET: /Book/Delete/5
         public async Task<ActionResult> Delete(int? id)

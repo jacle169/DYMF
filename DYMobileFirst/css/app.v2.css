@@ -12014,3 +12014,11 @@ input[type="checkbox"].input-validation-error
 {
     display: none;
 }
+
+/* styles for 分页打印 */
+@media print {
+    .page-break {
+        display: block;
+        page-break-after: always;
+    }
+}
