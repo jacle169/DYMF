@@ -22,6 +22,10 @@ namespace DYMobileFirst.Controllers
         public ActionResult Logon(string code, string name, string password, string ReturnUrl)
         {
             //判断验证码
+            if (Session["GoogleCode"] == null)
+            {
+                return Redirect("/Home/signin");
+            }
             string gc = Session["GoogleCode"].ToString();
             string cd = code.ToUpper();
             if ( gc != cd)
