@@ -13,7 +13,7 @@ using System.Globalization;
 
 namespace DYMobileFirst.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class BookController : Controller
     {
         private BookDBContext db = new BookDBContext();
