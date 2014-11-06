@@ -18,8 +18,16 @@ namespace DYMobileFirst.Controllers
             return View();
         }
 
-        public ActionResult Logon(string name, string password, string ReturnUrl)
+        public ActionResult Logon(string code, string name, string password, string ReturnUrl)
         {
+            //判断验证码
+            string gc = Session["GoogleCode"].ToString();
+            string cd = code.ToUpper();
+            if ( gc != cd)
+            {
+                return Redirect("/Home/signin");
+            }
+
             if (name == "aaa" && password == "aaa")
             {
                 FormsAuthentication.SetAuthCookie(name, false);

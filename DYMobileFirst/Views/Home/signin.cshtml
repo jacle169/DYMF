@@ -60,6 +60,13 @@
                                 </label>
                                 <input name="password" type="password" placeholder="由数字及字母组成" class="form-control">
                             </div>
+                            <div class="block">
+                                <label class="control-label">
+                                    验证码
+                                </label>
+                                <input name="code" type="text" placeholder="输入下图中的字符" class="form-control">
+                                <img src="@Url.Action("CreateImageCode", "GoogleCaptcha")" />
+                            </div>
                             <div class="checkbox">
                                 <label>
                                     <input type="checkbox">
