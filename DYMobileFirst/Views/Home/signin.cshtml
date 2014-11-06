@@ -62,10 +62,10 @@
                             </div>
                             <div class="block">
                                 <label class="control-label">
-                                    验证码
+                                    验证码<br>
+                                    <img src="@Url.Action("CreateImageCode", "GoogleCaptcha")" />
                                 </label>
                                 <input name="code" type="text" placeholder="输入下图中的字符" class="form-control">
-                                <img src="@Url.Action("CreateImageCode", "GoogleCaptcha")" />
                             </div>
                             <div class="checkbox">
                                 <label>

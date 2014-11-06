@@ -20,6 +20,7 @@ namespace DYMobileFirst.Models
         }
         public DbSet<Book> Books { get; set; }
         public DbSet<Author> Authors { get; set; }
+        public DbSet<SystemUser> SystemUsers { get; set; }
     }
 
     public class SystemInitializer : DropCreateDatabaseIfModelChanges<BookDBContext>
@@ -28,6 +29,8 @@ namespace DYMobileFirst.Models
         {
             //Id标识从1000开始
             context.Database.ExecuteSqlCommand("ALTER TABLE [Books] ALTER COLUMN [Id] IDENTITY (1001,1)");
+
+            context.SystemUsers.Add(new SystemUser() { ot_Name = "管理员", ot_userId = "admin", ot_pwd = "admin", ot_skin = em_opSkin.管理员 });
 
             var d = new Author() { Name = "古龙" };
             var c = new Author() { Name = "金庸" };

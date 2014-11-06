@@ -11,6 +11,7 @@ namespace DYMobileFirst.Controllers
 {
     public class HomeController : Controller
     {
+        BookDBContext db = new BookDBContext();
         public ActionResult Index()
         {
             ViewBag.Title = "Home Page";
@@ -28,9 +29,12 @@ namespace DYMobileFirst.Controllers
                 return Redirect("/Home/signin");
             }
 
-            if (name == "aaa" && password == "aaa")
+            var op = db.SystemUsers.FirstOrDefault(o => o.ot_userId == name);
+            if (op != null && op.ot_pwd == password)
             {
                 FormsAuthentication.SetAuthCookie(name, false);
+                Session["userId"] = op.ot_userId;
+                Session["userName"] = op.ot_Name;
                 if (!string.IsNullOrEmpty(ReturnUrl))
                 {
                     return Redirect(ReturnUrl);

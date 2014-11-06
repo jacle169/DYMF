@@ -6,6 +6,7 @@ using System.Data.Entity.Core.Metadata.Edm;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
+using System.Security.Principal;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
@@ -82,7 +83,18 @@ namespace DYMobileFirst
 
         protected void Application_AuthenticateRequest(object sender, EventArgs e)
         {
-
+            if (Context.User != null)
+            {
+                using (var dbcontext = new BookDBContext())
+                {
+                    var state = dbcontext.SystemUsers.FirstOrDefault(o => o.ot_userId == Context.User.Identity.Name);
+                    if (state != null)
+                    {
+                        GenericPrincipal gp = new GenericPrincipal(Context.User.Identity, new string[] { state.ot_skin.ToString() });
+                        Context.User = gp;
+                    }
+                }
+            }
         }
 
     }

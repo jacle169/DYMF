@@ -73,6 +73,33 @@ namespace DYMobileFirst.Models
         public string Name { get; set; }
     }
 
+    public class SystemUser
+    {
+        [Key]
+        [Display(Name = "ID")]
+        public int Id { get; set; }
+        [Required(ErrorMessage = "用户名不能空")]
+        [Display(Name = "用户名")]
+        [StringLength(128, MinimumLength = 1, ErrorMessage = "字长要在1至128之间")]
+        //[Remote("CheckUserExists", "Op", HttpMethod = "POST", ErrorMessage = "应该账号已存在")] // 远程验证（Ajax）  
+        public string ot_userId { get; set; }
+        [Required(ErrorMessage = "密码不能空")]
+        [Display(Name = "密码")]
+        public string ot_pwd { get; set; }
+        [Display(Name = "姓名")]
+        public string ot_Name { get; set; }
+        [Display(Name = "电话")]
+        public string ot_Tel { get; set; }
+        [UIHint("Enum")]
+        [Display(Name = "身份")]
+        public em_opSkin ot_skin { get; set; }
+    }
+
+    public enum em_opSkin
+    {
+        管理员, 销售员
+    }
+
     public enum em_bool
     {
         是, 否

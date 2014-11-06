@@ -14,6 +14,7 @@ using System.Globalization;
 namespace DYMobileFirst.Controllers
 {
     //[Authorize]
+    //[Authorize(Roles = "管理员, 销售员")]
     public class BookController : Controller
     {
         private BookDBContext db = new BookDBContext();
