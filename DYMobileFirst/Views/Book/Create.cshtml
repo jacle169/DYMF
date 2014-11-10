@@ -105,7 +105,8 @@
         }
 
         <div>
-            @Html.ActionLink("返回", "Index", new { pi = 1, ps = 15 }, new { @class = "btn btn-info btn-xs" })
+            @*@Html.ActionLink("返回", "Index", new { pi = 1, ps = 15 }, new { @class = "btn btn-info btn-xs" })*@
+            <a class="btn btn-info btn-xs" onclick="Javascript:window.history.go(-1);">返回</a>
         </div>
     </section>
 </section>

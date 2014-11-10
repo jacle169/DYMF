@@ -172,6 +172,7 @@ namespace DYMobileFirst.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            Session["RefUrl"] = Request.UrlReferrer.ToString();
             Book book = await db.Books.FindAsync(id);
             db.Entry(book).Reference(x => x.Author).Load();
             if (book == null)
@@ -236,6 +237,11 @@ namespace DYMobileFirst.Controllers
 
                 db.Entry(book).State = EntityState.Modified;
                 await db.SaveChangesAsync();
+                object refUrl = Session["RefUrl"];
+                if (refUrl != null)
+                {
+                    return Redirect((string)refUrl);
+                }
                 return RedirectToAction("Index", new { pi = 1, ps = 15 });
             }
             ViewBag.AuthorId = new SelectList(db.Authors, "Id", "Name", book.AuthorId);
